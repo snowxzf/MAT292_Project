@@ -54,14 +54,18 @@ Training Scripts (*_training.py): These process the 80-patient training cohort. 
 Predictive Scripts (*predictive.py): These evaluate the 10-patient test set using a 50/50 temporal split.Calibration: The solver uses the first 50% of a patient's timepoints to estimate parameters ($\rho, \sigma, K$) via Differential Evolution.Forecasting: The solver then simulates the remaining 50% of the timeline to measure predictive accuracy against the "unseen" MRI observations.
 
 
-empredictive.py: Implementation of the Euler-Maruyama method (strong order 0.5).
+empredictive.py: Implementation of the Euler-Maruyama method (strong order 0.5). 
 
 milsteinpredictive.py: Implementation of the Milstein method (strong order 1.0).
 
 rkpredictive.py: Implementation of the Strong Runge-Kutta (SRK) method (derivative-free order 1.0).
 
+**Numerical Method Comparisons**: The project evaluates three solvers with different mathematical properties:
+1. EM: Our baseline. It uses a simple first-order approximation but can be sensitive to large time steps.
+2. Milstein: Specifically addresses "multiplicative noise" ($\sigma V$). It includes an Itô correction term ($0.5 \sigma^2 V$), which provides higher-order strong convergence.
+3. SRK: A derivative-free multi-stage method. It uses a predictor-corrector approach to achieve high-order accuracy without needing to analytically compute the derivative of the diffusion term.
 
-2. Training & Visualization Scripts: Used for processing the 80-patient training set and generating aggregate convergence and scaling plots across various discretization steps ($\Delta t$).emplots_training.pymilstein_plots_trainingset.pyrk_trainingset.py3.
+4. Training & Visualization Scripts: Used for processing the 80-patient training set and generating aggregate convergence and scaling plots across various discretization steps ($\Delta t$).emplots_training.pymilstein_plots_trainingset.pyrk_trainingset.py3.
 
 Note: The tumour_data.csv file (derived from the LUMIERE dataset) is already included within the branched folders of this repository. You do not need to provide external volumetric data to run the solvers.
 ```bash
@@ -80,6 +84,10 @@ Trajectory Fits: milstein_predictive_plots/, srk_predictive_plots/, and em_predi
 Performance Metrics: test_plots/ contains the final box plots. These visualizations specifically utilize IQR Clipping to remove statistical outliers (like Patient 43 and 77), allowing for a clear visual comparison of the "typical" performance across all four models.
 
 Stability is evaluated via Trajectory Convergence Time (TCT). The scripts calculate the earliest week $t^*$ where the relative change in the ensemble mean stays below a tolerance of $10^{-4}$ for at least 5 consecutive weeks. This metric is used to contrast the rapid stabilization of Neural ODEs against the high-volatility tail behavior of the EM baseline.
+
+## Data Source and Preprocessing
+The included tumour_data.csv is derived from the LUMIERE dataset (Longitudinal Glioblastoma MRI with expert RANO evaluation). We performed automated segmentation using HD-GLIO and nnU-Net, extracting volumetric data across four MRI sequences (T1, T1c, T2, and FLAIR). This ensures the numerical models are grounded in high-fidelity, longitudinal clinical observations.
+
 ## Verification Script (**FOR TAS**)
 To facilitate quick grading, the scripts test_em.py, test_milstein.py, and test_srk.py have been pre-configured as "High-Efficiency" versions. These scripts isolate a single patient and use optimized hyperparameters to significantly reduce wall-clock runtime without compromising the underlying mathematical logic.
 We have implemented two primary changes to the numerical configurations to ensure each script finishes in around 5-10 minutes total for all three scripts:
