@@ -78,26 +78,58 @@ Trajectory Fits: milstein_predictive_plots/, srk_predictive_plots/, and em_predi
 Performance Metrics: test_plots/ contains the final box plots. These visualizations specifically utilize IQR Clipping to remove statistical outliers (like Patient 43 and 77), allowing for a clear visual comparison of the "typical" performance across all four models.
 
 Stability is evaluated via Trajectory Convergence Time (TCT). The scripts calculate the earliest week $t^*$ where the relative change in the ensemble mean stays below a tolerance of $10^{-4}$ for at least 5 consecutive weeks. This metric is used to contrast the rapid stabilization of Neural ODEs against the high-volatility tail behavior of the EM baseline.
-
 ## Verification Script
-To verify the numerical implementation without running the full cohort, use the standalone script:
-1. Ensure `tumour_data.csv` is in the root directory.
-2. Run `python verify_patient_67.py`.
-3. Check the `verification_results/` folder for the summary CSV and comparison plot.
-**How it differs from the main solvers:**
-- **Speed:** Uses **NumPy Vectorization** to solve the Stochastic Differential Equations. It processes the 60-path Monte Carlo ensemble 10x faster than the standard iterative scripts. Therefore, keep in mind that the shape of the graph is different than what the report used.
-- **Scope:** While the main scripts (`empredictive.py`, etc.) process the full 10-patient test cohort, this script targets a single representative patient to allow for rapid verification of the numerical logic.
-Each numerical script (empredictive.py, etc.) generates a summary CSV in the numerical_stats/ folder. Below is a breakdown of what the columns represent:
-1. Identification & PerformancePatient / Method: The patient ID and the specific SDE solver used.
-2. MASE (Mean Absolute Scaled Error): The primary accuracy metric. A value near 1.0 means the model is roughly as accurate as a "naive" guess. Lower is better.
-3. Chi2 ($\chi^2$): Measures the structural deviation of the fit from clinical data. High values indicate a divergence in growth trends.
-4. NSE / KGE: Efficiency metrics where 1.0 is a perfect fit. Negative values indicate that the model mean is less predictive than the historical average.FitTime / ParamChange: Tracks the computational cost of the two-stage calibration (Differential Evolution + Least Squares).
-5. Stability & ConvergenceTrajectoryConvergenceTime (TCT): The time point (in weeks) where the tumor volume stabilizes within a $10^{-4}$ tolerance.
-6. Conv_dt: The refinement grid used for discretization analysis (e.g., 0.8|0.4|0.2|0.1|0.05).
-7. StrongError / WeakError: These columns contain multiple values separated by a pipe (|). Each value corresponds to the discretization steps in Conv_dt.Strong Error: Measures path-wise accuracy. It should decrease linearly as $\Delta t$ gets smaller. Weak Error: Measures the accuracy of the statistical mean.
-8. Runtime: The wall-clock time (seconds) taken to simulate the ensemble at each refinement level.
+To facilitate quick grading, the scripts test_em.py, test_milstein.py, and test_srk.py have been pre-configured as "High-Efficiency" versions. These scripts isolate a single patient and use optimized hyperparameters to significantly reduce wall-clock runtime without compromising the underlying mathematical logic.
+We have implemented two primary changes to the numerical configurations to ensure each script finishes in around 5-10 minutes total for all three scripts:
+1. Discretization ($\Delta t$): Increased to $\Delta t = 0.5, 1$. By using a larger step size, the number of iterations per simulation is reduced.
+3. Ensemble Size ($M$):Standard: $M = 60$ paths (For stable 95% Confidence Intervals).Grading Mode: $M = 20$ paths. This reduces the Monte Carlo computational load by 66%.
+Each script targets Patient 19 by default. Upon execution, the scripts will automatically create and populate the following directories:
 
-**Example Data Interpretation:** In the provided example for Patient 31:MASE (0.97): Indicates a very strong predictive fit on the unseen test data.TCT (1330.0): Shows that this specific simulation did not reach a stable plateau within the clinical window (often signifying active late-stage growth).StrongError (2523|2325|...|1915): Shows a steady decrease in error as the time step is refined from $0.8$ down to $0.05$, proving numerical stability.
+- em_predictive_outputs/
+
+- milstein_predictive_outputs/
+
+- srk_predictive_outputs/
+
+Each directory will contain:
+1. Predictive Plot: A .png visualization showing the Seen data (used for fitting), the Unseen data (held out for testing), and the resulting SDE trajectory.
+2. Metrics CSV: A summary containing the MASE, $\chi^2$, NSE, and KGE scores, along with the calculated Trajectory Convergence Time (TCT).
+
+If you wish to verify the model against other patients from our test cohort, simply modify the TESTING_PATIENTS list at the top of each script: (Change this to any of the 10 test patients: [31, 19, 43, 54, 77, 73, 72, 71, 67, 52])
+```bash
+TESTING_PATIENTS: List[int] = [67]
+```
+
+Please follow these steps to verify the numerical models and predictive accuracy:
+1. Environment Check: Ensure numpy, matplotlib, scipy, pandas, and tqdm are installed in your Python environment.
+2. Execution: Run the three test scripts in any order:
+
+- python test_em.py
+
+- python test_milstein.py
+
+- python test_srk.py
+
+3. Directory Verification: Confirm that three new folders have been created:
+
+- em_predictive_outputs/
+
+- milstein_predictive_outputs/
+
+- srk_predictive_outputs/
+
+4. Visual Inspection: Open the .png files in each folder. Verify that:
+
+- Seen Data (Blue circles) represents the training set.
+
+- Unseen Data (Red crosses) represents the test set.
+
+- The Solid Line shows the SDE model's mean forecast.
+
+5. Data Verification: Open the .csv files. Check for MASE, NGE, KSE, Chi-squared, TCT convergence, strong/weak convergence, runtime convergence. 
+
+**Example Data Interpretation:** For example:
+MASE (0.97): Indicates a very strong predictive fit on the unseen test data.TCT (1330.0): Shows that this specific simulation did not reach a stable plateau within the clinical window (often signifying active late-stage growth).StrongError (2523|2325|...|1915): Shows a steady decrease in error as the time step is refined from $0.8$ down to $0.05$, proving numerical stability.
 ## Final Comparative Analysis
 These scripts consolidate numerical results with Neural ODE outputs to generate the formal paper-style visualizations and tables used in the report.
 
