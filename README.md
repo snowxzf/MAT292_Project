@@ -55,7 +55,9 @@ Predictive Scripts (*predictive.py): These evaluate the 10-patient test set usin
 
 
 empredictive.py: Implementation of the Euler-Maruyama method (strong order 0.5).
+
 milsteinpredictive.py: Implementation of the Milstein method (strong order 1.0).
+
 rkpredictive.py: Implementation of the Strong Runge-Kutta (SRK) method (derivative-free order 1.0).
 
 
@@ -78,7 +80,7 @@ Trajectory Fits: milstein_predictive_plots/, srk_predictive_plots/, and em_predi
 Performance Metrics: test_plots/ contains the final box plots. These visualizations specifically utilize IQR Clipping to remove statistical outliers (like Patient 43 and 77), allowing for a clear visual comparison of the "typical" performance across all four models.
 
 Stability is evaluated via Trajectory Convergence Time (TCT). The scripts calculate the earliest week $t^*$ where the relative change in the ensemble mean stays below a tolerance of $10^{-4}$ for at least 5 consecutive weeks. This metric is used to contrast the rapid stabilization of Neural ODEs against the high-volatility tail behavior of the EM baseline.
-## Verification Script
+## Verification Script (**FOR TAS**)
 To facilitate quick grading, the scripts test_em.py, test_milstein.py, and test_srk.py have been pre-configured as "High-Efficiency" versions. These scripts isolate a single patient and use optimized hyperparameters to significantly reduce wall-clock runtime without compromising the underlying mathematical logic.
 We have implemented two primary changes to the numerical configurations to ensure each script finishes in around 5-10 minutes total for all three scripts:
 1. Discretization ($\Delta t$): Increased to $\Delta t = 0.5, 1$. By using a larger step size, the number of iterations per simulation is reduced.
