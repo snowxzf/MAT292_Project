@@ -1,0 +1,14 @@
+[Patient-019]: Conv Time=41.00, SRK Weak Err=5.43e+01, SRK Strong Err=372.5875963286412, Runtime=74.63s
+Failed saving SRK patient plot: Unknown format code 'd' for object of type 'str'
+[Patient-031]: Conv Time=39.00, SRK Weak Err=3.22e+01, SRK Strong Err=395.2015744002742, Runtime=96.01s
+Failed saving SRK patient plot: Unknown format code 'd' for object of type 'str'
+[Patient-043]: Conv Time=46.00, SRK Weak Err=7.54e+01, SRK Strong Err=397.5067702827758, Runtime=54.00s
+Failed saving SRK patient plot: Unknown format code 'd' for object of type 'str'
+[Patient-052]: Conv Time=39.00, SRK Weak Err=1.17e+02, SRK Strong Err=409.026768799455, Runtime=83.67s
+[Patient-071]: Conv Time=39.00, SRK Weak Err=7.14e+01, SRK Strong Err=417.8726721340255, Runtime=55.85s
+Failed saving SRK patient plot: Unknown format code 'd' for object of type 'str'
+[Patient-072]: Conv Time=39.00, SRK Weak Err=4.02e+01, SRK Strong Err=404.0736792542687, Runtime=57.49s
+Failed saving SRK patient plot: Unknown format code 'd' for object of type 'str'
+[Patient-073]: Conv Time=39.00, SRK Weak Err=5.44e+01, SRK Strong Err=416.67714836991183, Runtime=119.17s
+Failed saving SRK patient plot: Unknown format code 'd' for object of type 'str'
+[Patient-077]: Conv Time=39.00, SRK Weak Err=8.40e+01, SRK Strong Err=419.6059188368554, Runtime=56.27s

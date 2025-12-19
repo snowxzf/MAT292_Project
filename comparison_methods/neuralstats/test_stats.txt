@@ -1,0 +1,50 @@
+Patient Patient-019 (Unmethylated):
+> MASE: 0.7376 | Chi2: 3.27e+05
+> NSE:  -0.5539 | KGE:  -0.3019
+> Trajectory Runtime: 135.17s
+Plot saved to: C:\Users\ashah\Downloads\MAT292 Codes\neural_ode\neuralode_comparison_Patient-019.png
+Patient Patient-031 (Unmethylated):
+> MASE: 1.5420 | Chi2: 1.03e+06
+> NSE:  0.0049 | KGE:  -0.2009
+> Trajectory Runtime: 196.03s
+Plot saved to: C:\Users\ashah\Downloads\MAT292 Codes\neural_ode\neuralode_comparison_Patient-031.png
+Patient Patient-043 (Unmethylated):
+> MASE: 4.5936 | Chi2: 2.69e+21
+> NSE:  -2.7574 | KGE:  -1.7258
+> Trajectory Runtime: 131.49s
+Plot saved to: C:\Users\ashah\Downloads\MAT292 Codes\neural_ode\neuralode_comparison_Patient-043.png
+Patient Patient-052 (Unmethylated):
+> MASE: 0.7570 | Chi2: 3.39e+04
+> NSE:  0.2502 | KGE:  0.7216
+> Trajectory Runtime: 203.44s
+Plot saved to: C:\Users\ashah\Downloads\MAT292 Codes\neural_ode\neuralode_comparison_Patient-052.png
+Patient Patient-054 (Unmethylated):
+> MASE: 2.4524 | Chi2: 1.32e+05
+> NSE:  -3.4068 | KGE:  0.0575
+> Trajectory Runtime: 132.64s
+Plot saved to: C:\Users\ashah\Downloads\MAT292 Codes\neural_ode\neuralode_comparison_Patient-054.png
+Patient Patient-067 (Unmethylated):
+> MASE: 1.0150 | Chi2: 5.43e+05
+> NSE:  0.0226 | KGE:  -0.0158
+> Trajectory Runtime: 191.25s
+Plot saved to: C:\Users\ashah\Downloads\MAT292 Codes\neural_ode\neuralode_comparison_Patient-067.png
+Patient Patient-071 (Unmethylated):
+> MASE: 0.7722 | Chi2: 1.40e+05
+> NSE:  0.2252 | KGE:  0.5199
+> Trajectory Runtime: 121.75s
+Plot saved to: C:\Users\ashah\Downloads\MAT292 Codes\neural_ode\neuralode_comparison_Patient-071.png
+Patient Patient-072 (Unmethylated):
+> MASE: 1.0286 | Chi2: 2.07e+05
+> NSE:  -0.2352 | KGE:  -0.1140
+> Trajectory Runtime: 119.05s
+Plot saved to: C:\Users\ashah\Downloads\MAT292 Codes\neural_ode\neuralode_comparison_Patient-072.png
+Patient Patient-073 (Unmethylated):
+> MASE: 0.8934 | Chi2: 6.51e+05
+> NSE:  0.7775 | KGE:  0.8228
+> Trajectory Runtime: 222.28s
+Plot saved to: C:\Users\ashah\Downloads\MAT292 Codes\neural_ode\neuralode_comparison_Patient-073.png
+Patient Patient-077 (Unmethylated):
+> MASE: 0.6135 | Chi2: 2.56e+05
+> NSE:  0.6825 | KGE:  0.7306
+> Trajectory Runtime: 114.66s
+Plot saved to: C:\Users\ashah\Downloads\MAT292 Codes\neural_ode\neuralode_comparison_Patient-077.png

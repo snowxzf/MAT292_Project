@@ -1,0 +1,131 @@
+
+Starting prediction and plotting for all patients...
+[Patient-001 Metrics (Methylated)]: MAE=21533.44, Chi^2=302873.86, NSE=-1.04, KGE=-0.15
+[Patient-002 Metrics (Unmethylated)]: MAE=15141.73, Chi^2=270396.58, NSE=-1.85, KGE=-0.08
+[Patient-003 Metrics (Unmethylated)]: MAE=36073.15, Chi^2=244432.65, NSE=0.03, KGE=-0.17
+[Patient-004 Metrics (Unmethylated)]: MAE=19245.77, Chi^2=153647.04, NSE=-0.06, KGE=0.53
+[Patient-005 Metrics (Unmethylated)]: MAE=24607.02, Chi^2=90824.84, NSE=-0.19, KGE=0.45
+[Patient-006 Metrics (Methylated)]: MAE=18581.20, Chi^2=117180.16, NSE=0.77, KGE=0.78
+[Patient-007 Metrics (Unmethylated)]: MAE=21193.47, Chi^2=918457.23, NSE=0.47, KGE=0.50
+[Patient-008 Metrics (Methylated)]: MAE=10288.61, Chi^2=25831.99, NSE=0.91, KGE=0.78
+[Patient-009 Metrics (Unmethylated)]: MAE=20560.45, Chi^2=501489.34, NSE=-0.31, KGE=-0.06
+[Patient-010 Metrics (Methylated)]: MAE=10224.51, Chi^2=30608.17, NSE=0.79, KGE=0.64
+[Patient-011 Metrics (Unmethylated)]: MAE=12084.38, Chi^2=124090.86, NSE=0.19, KGE=0.36
+[Patient-012 Metrics (Unmethylated)]: MAE=19698.15, Chi^2=362014.58, NSE=-0.09, KGE=-0.22
+[Patient-013 Metrics (Unmethylated)]: MAE=16348.23, Chi^2=131543.10, NSE=0.77, KGE=0.57
+[Patient-014 Metrics (Methylated)]: MAE=11671.47, Chi^2=117866.81, NSE=0.83, KGE=0.66
+[Patient-015 Metrics (Methylated)]: MAE=25023.95, Chi^2=568693.85, NSE=-0.04, KGE=-0.25
+C:\Users\ashah\Downloads\MAT292 Codes\.venv\Lib\site-packages\numpy\lib\_function_base_impl.py:3065: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+C:\Users\ashah\Downloads\MAT292 Codes\.venv\Lib\site-packages\numpy\lib\_function_base_impl.py:3066: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+[Patient-016 Metrics (Unmethylated)]: MAE=7316.46, Chi^2=19398.74, NSE=-1.00, KGE=nan
+[Patient-017 Metrics (Unmethylated)]: MAE=26234.69, Chi^2=79336.46, NSE=0.17, KGE=0.12
+[Patient-018 Metrics (Methylated)]: MAE=17935.25, Chi^2=1546334.38, NSE=-8.23, KGE=-1.13
+C:\Users\ashah\Downloads\MAT292 Codes\.venv\Lib\site-packages\numpy\lib\_function_base_impl.py:3065: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+C:\Users\ashah\Downloads\MAT292 Codes\.venv\Lib\site-packages\numpy\lib\_function_base_impl.py:3066: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+[Patient-020 Metrics (Unmethylated)]: MAE=29239.97, Chi^2=39410.93, NSE=-1.00, KGE=nan
+[Patient-021 Metrics (Unmethylated)]: MAE=14878.58, Chi^2=29884.47, NSE=0.06, KGE=0.03
+[Patient-022 Metrics (Unmethylated)]: MAE=34535.61, Chi^2=185667.13, NSE=-0.09, KGE=0.16
+[Patient-023 Metrics (Unmethylated)]: MAE=38352.45, Chi^2=1706777443296167.50, NSE=-0.08, KGE=-0.33
+[Patient-024 Metrics (Methylated)]: MAE=20273.41, Chi^2=1079668.82, NSE=-0.64, KGE=-0.19
+[Patient-025 Metrics (Unmethylated)]: MAE=32261.40, Chi^2=1695365659217101.25, NSE=0.03, KGE=-0.04
+C:\Users\ashah\Downloads\MAT292 Codes\.venv\Lib\site-packages\numpy\lib\_function_base_impl.py:3057: RuntimeWarning: Degrees of freedom <= 0 for slice
+  c = cov(x, y, rowvar, dtype=dtype)
+C:\Users\ashah\Downloads\MAT292 Codes\.venv\Lib\site-packages\numpy\lib\_function_base_impl.py:2914: RuntimeWarning: divide by zero encountered in divide
+  c *= np.true_divide(1, fact)
+C:\Users\ashah\Downloads\MAT292 Codes\.venv\Lib\site-packages\numpy\lib\_function_base_impl.py:2914: RuntimeWarning: invalid value encountered in multiply   
+  c *= np.true_divide(1, fact)
+[Patient-026 Metrics (Unmethylated)]: MAE=58.31, Chi^2=0.28, NSE=-3399650342.90, KGE=nan
+[Patient-027 Metrics (Unmethylated)]: MAE=23738.38, Chi^2=69528.80, NSE=-0.85, KGE=-0.79
+[Patient-028 Metrics (Methylated)]: MAE=40496.24, Chi^2=248143.84, NSE=-0.29, KGE=0.45
+[Patient-029 Metrics (Methylated)]: MAE=16620.35, Chi^2=152759.55, NSE=-1.24, KGE=0.18
+[Patient-030 Metrics (Unmethylated)]: MAE=19711.50, Chi^2=1389037.80, NSE=-1.33, KGE=-0.31
+[Patient-032 Metrics (Methylated)]: MAE=23507.18, Chi^2=1718568.53, NSE=-7.69, KGE=-1.15
+[Patient-033 Metrics (Methylated)]: MAE=15459.85, Chi^2=383038.57, NSE=-0.19, KGE=0.17
+[Patient-034 Metrics (Unmethylated)]: MAE=25864.65, Chi^2=310635.56, NSE=0.57, KGE=0.50
+[Patient-035 Metrics (Methylated)]: MAE=46497.28, Chi^2=184123.99, NSE=-2.44, KGE=-0.46
+[Patient-036 Metrics (Unmethylated)]: MAE=14359.73, Chi^2=2755020.96, NSE=-49.07, KGE=-5.75
+[Patient-037 Metrics (Unmethylated)]: MAE=15568.45, Chi^2=39956.40, NSE=0.01, KGE=0.38
+[Patient-038 Metrics (Unmethylated)]: MAE=5197.23, Chi^2=4967.78, NSE=0.82, KGE=0.65
+[Patient-039 Metrics (Unmethylated)]: MAE=27786.12, Chi^2=699107.46, NSE=0.37, KGE=0.58
+[Patient-040 Metrics (Unmethylated)]: MAE=54159.77, Chi^2=157254.82, NSE=-0.18, KGE=-0.02
+[Patient-041 Metrics (Unmethylated)]: MAE=13725.21, Chi^2=163874.43, NSE=0.69, KGE=0.63
+[Patient-042 Metrics (Methylated)]: MAE=36050.04, Chi^2=51303401.64, NSE=-0.02, KGE=-0.25
+C:\Users\ashah\Downloads\MAT292 Codes\.venv\Lib\site-packages\numpy\lib\_function_base_impl.py:3057: RuntimeWarning: Degrees of freedom <= 0 for slice
+  c = cov(x, y, rowvar, dtype=dtype)
+C:\Users\ashah\Downloads\MAT292 Codes\.venv\Lib\site-packages\numpy\lib\_function_base_impl.py:2914: RuntimeWarning: divide by zero encountered in divide
+  c *= np.true_divide(1, fact)
+C:\Users\ashah\Downloads\MAT292 Codes\.venv\Lib\site-packages\numpy\lib\_function_base_impl.py:2914: RuntimeWarning: invalid value encountered in multiply   
+  c *= np.true_divide(1, fact)
+[Patient-044 Metrics (Unmethylated)]: MAE=36.31, Chi^2=0.03, NSE=-1318309745.27, KGE=nan
+[Patient-045 Metrics (Unmethylated)]: MAE=8150.16, Chi^2=37540.37, NSE=0.11, KGE=0.54
+[Patient-046 Metrics (Unmethylated)]: MAE=15471.41, Chi^2=105963.91, NSE=0.29, KGE=0.44
+C:\Users\ashah\Downloads\MAT292 Codes\.venv\Lib\site-packages\numpy\lib\_function_base_impl.py:3065: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+C:\Users\ashah\Downloads\MAT292 Codes\.venv\Lib\site-packages\numpy\lib\_function_base_impl.py:3066: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+[Patient-047 Metrics (Methylated)]: MAE=29345.39, Chi^2=32518.28, NSE=-1.01, KGE=nan
+[Patient-048 Metrics (Unmethylated)]: MAE=32946.72, Chi^2=830150.82, NSE=0.31, KGE=0.45
+[Patient-049 Metrics (Unmethylated)]: MAE=69109.78, Chi^2=197329.79, NSE=-0.80, KGE=-0.11
+[Patient-050 Metrics (Unmethylated)]: MAE=68846.91, Chi^2=259286.06, NSE=-0.72, KGE=-0.25
+[Patient-051 Metrics (Methylated)]: MAE=30505.48, Chi^2=195606.27, NSE=-0.50, KGE=0.32
+C:\Users\ashah\Downloads\MAT292 Codes\.venv\Lib\site-packages\numpy\lib\_function_base_impl.py:3057: RuntimeWarning: Degrees of freedom <= 0 for slice
+  c = cov(x, y, rowvar, dtype=dtype)
+C:\Users\ashah\Downloads\MAT292 Codes\.venv\Lib\site-packages\numpy\lib\_function_base_impl.py:2914: RuntimeWarning: divide by zero encountered in divide
+  c *= np.true_divide(1, fact)
+C:\Users\ashah\Downloads\MAT292 Codes\.venv\Lib\site-packages\numpy\lib\_function_base_impl.py:2914: RuntimeWarning: invalid value encountered in multiply   
+  c *= np.true_divide(1, fact)
+[Patient-053 Metrics (Methylated)]: MAE=42.68, Chi^2=0.02, NSE=-1821843458.79, KGE=nan
+[Patient-055 Metrics (Unmethylated)]: MAE=21565.80, Chi^2=603615.41, NSE=0.71, KGE=0.72
+C:\Users\ashah\Downloads\MAT292 Codes\.venv\Lib\site-packages\numpy\lib\_function_base_impl.py:3065: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+C:\Users\ashah\Downloads\MAT292 Codes\.venv\Lib\site-packages\numpy\lib\_function_base_impl.py:3066: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+[Patient-056 Metrics (Unmethylated)]: MAE=7010.56, Chi^2=3612.29, NSE=-0.99, KGE=nan
+C:\Users\ashah\Downloads\MAT292 Codes\.venv\Lib\site-packages\numpy\lib\_function_base_impl.py:3065: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+C:\Users\ashah\Downloads\MAT292 Codes\.venv\Lib\site-packages\numpy\lib\_function_base_impl.py:3066: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+[Patient-057 Metrics (Methylated)]: MAE=6390.92, Chi^2=2602.92, NSE=-0.94, KGE=nan
+[Patient-058 Metrics (Methylated)]: MAE=6017.61, Chi^2=11705.70, NSE=-0.21, KGE=0.57
+[Patient-059 Metrics (Methylated)]: MAE=15391.46, Chi^2=87512.71, NSE=0.20, KGE=0.22
+[Patient-060 Metrics (Methylated)]: MAE=20853.56, Chi^2=1484915.80, NSE=-0.01, KGE=-0.07
+[Patient-061 Metrics (Methylated)]: MAE=23292.40, Chi^2=120350.95, NSE=0.08, KGE=0.35
+[Patient-062 Metrics (Methylated)]: MAE=22180.20, Chi^2=244086.69, NSE=0.05, KGE=0.41
+[Patient-063 Metrics (Methylated)]: MAE=15987.48, Chi^2=375665.72, NSE=-1.81, KGE=-0.50
+[Patient-064 Metrics (Methylated)]: MAE=2398.80, Chi^2=1257.55, NSE=0.97, KGE=0.92
+[Patient-065 Metrics (Unmethylated)]: MAE=60874.41, Chi^2=410248.39, NSE=-0.11, KGE=-0.34
+[Patient-066 Metrics (Unmethylated)]: MAE=22788.51, Chi^2=1031912.21, NSE=0.83, KGE=0.75
+[Patient-068 Metrics (Unmethylated)]: MAE=30512.50, Chi^2=540945.47, NSE=0.08, KGE=-0.07
+[Patient-069 Metrics (Methylated)]: MAE=9120.13, Chi^2=5235.04, NSE=0.90, KGE=0.76
+[Patient-070 Metrics (Unmethylated)]: MAE=52312.33, Chi^2=2945907.49, NSE=-0.09, KGE=-0.27
+[Patient-074 Metrics (Methylated)]: MAE=11386.46, Chi^2=34613.93, NSE=-14.65, KGE=-0.99
+[Patient-075 Metrics (Unmethylated)]: MAE=12424.86, Chi^2=193164.41, NSE=0.17, KGE=0.38
+C:\Users\ashah\Downloads\MAT292 Codes\.venv\Lib\site-packages\numpy\lib\_function_base_impl.py:3057: RuntimeWarning: Degrees of freedom <= 0 for slice
+  c = cov(x, y, rowvar, dtype=dtype)
+C:\Users\ashah\Downloads\MAT292 Codes\.venv\Lib\site-packages\numpy\lib\_function_base_impl.py:2914: RuntimeWarning: divide by zero encountered in divide
+  c *= np.true_divide(1, fact)
+C:\Users\ashah\Downloads\MAT292 Codes\.venv\Lib\site-packages\numpy\lib\_function_base_impl.py:2914: RuntimeWarning: invalid value encountered in multiply   
+  c *= np.true_divide(1, fact)
+[Patient-076 Metrics (Unmethylated)]: MAE=28.52, Chi^2=0.02, NSE=-813360442.07, KGE=nan
+[Patient-078 Metrics (Unmethylated)]: MAE=10606.94, Chi^2=106195.87, NSE=0.63, KGE=0.71
+[Patient-079 Metrics (Unmethylated)]: MAE=24394.70, Chi^2=26414.40, NSE=-12.93, KGE=-1.12
+[Patient-080 Metrics (Unmethylated)]: MAE=7982.50, Chi^2=26273.46, NSE=0.60, KGE=0.49
+[Patient-081 Metrics (Unmethylated)]: MAE=16585.18, Chi^2=44658.73, NSE=-0.21, KGE=0.53
+[Patient-082 Metrics (Unmethylated)]: MAE=30927.12, Chi^2=111410.75, NSE=0.66, KGE=0.69
+[Patient-083 Metrics (Unmethylated)]: MAE=18884.09, Chi^2=24983.92, NSE=0.82, KGE=0.66
+[Patient-084 Metrics (Methylated)]: MAE=20719.56, Chi^2=22122.45, NSE=-5.10, KGE=-0.76
+[Patient-085 Metrics (Unmethylated)]: MAE=40038.29, Chi^2=159901.83, NSE=-0.74, KGE=-0.54
+[Patient-086 Metrics (Methylated)]: MAE=63426.67, Chi^2=332456.58, NSE=-2.23, KGE=0.09
+[Patient-087 Metrics (Unmethylated)]: MAE=12478.78, Chi^2=150812.14, NSE=-7.90, KGE=-1.14
+C:\Users\ashah\Downloads\MAT292 Codes\.venv\Lib\site-packages\numpy\lib\_function_base_impl.py:3065: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+C:\Users\ashah\Downloads\MAT292 Codes\.venv\Lib\site-packages\numpy\lib\_function_base_impl.py:3066: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+[Patient-088 Metrics (Unmethylated)]: MAE=24525.62, Chi^2=49369.15, NSE=-1.00, KGE=nan
+[Patient-089 Metrics (Methylated)]: MAE=15558.78, Chi^2=75704.51, NSE=0.83, KGE=0.71
+[Patient-090 Metrics (Unmethylated)]: MAE=11494.11, Chi^2=52483.61, NSE=-21.14, KGE=-1.49
+[Patient-091 Metrics (Unmethylated)]: MAE=13815.71, Chi^2=85572.37, NSE=-0.73, KGE=0.13
