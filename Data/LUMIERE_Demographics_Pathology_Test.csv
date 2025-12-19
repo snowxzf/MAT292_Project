@@ -1,0 +1,12 @@
+Patient,Survival time (weeks),Sex,Age at surgery (years),IDH (WT: wild type),IDH method,MGMT qualitative,MGMT quantitative
+Patient-019,186,male,53,"IDH1 neg, Sequencing required",Immuno,methylated,na
+Patient-031,195,male,47,"IDH1 neg, Sequencing required",Immuno,methylated,72.00%
+Patient-043,121,male,45,na,na,not methylated,0.00%
+Patient-052,201,female,55,WT,Immuno,methylated,92.00%
+Patient-054,80,female,54,"IDH1 neg, Sequencing required",Immuno,not methylated,0.00%
+Patient-067,172,female,43,na,na,methylated,na
+Patient-071,69,male,66,WT,Immuno,methylated,45.00%
+Patient-072,125,female,59,WT,Immuno,methylated,100.00%
+Patient-073,165,female,50,WT,BES,methylated,na
+Patient-077,89,female,57,WT,Immuno,not methylated,0.00%
+
