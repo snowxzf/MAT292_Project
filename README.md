@@ -61,21 +61,20 @@ milsteinpredictive.py: Implementation of the Milstein method (strong order 1.0).
 rkpredictive.py: Implementation of the Strong Runge-Kutta (SRK) method (derivative-free order 1.0).
 
 **Numerical Method Comparisons**: The project evaluates three solvers with different mathematical properties:
-1. EM: Our baseline. It uses a simple first-order approximation but can be sensitive to large time steps.
-2. Milstein: Specifically addresses "multiplicative noise" ($\sigma V$). It includes an Itô correction term ($0.5 \sigma^2 V$), which provides higher-order strong convergence.
-3. SRK: A derivative-free multi-stage method. It uses a predictor-corrector approach to achieve high-order accuracy without needing to analytically compute the derivative of the diffusion term.
+1. EM: Our baseline. It uses a simple first-order approximation but can be sensitive to large time steps. Data from this method is taken from em_predictive_data.py, and plots from em_predictive_plots.py within euler_maruyama. 
+2. Milstein: Specifically addresses "multiplicative noise" ($\sigma V$). It includes an Itô correction term ($0.5 \sigma^2 V$), which provides higher-order strong convergence. Data from this method is taken from milstein_prediction_data.py, and plots from milstein_prediction_plots.py within milstein. 
+3. SRK: A derivative-free multi-stage method. It uses a predictor-corrector approach to achieve high-order accuracy without needing to analytically compute the derivative of the diffusion term. Data from this method is taken from rkpredictive_data.py, and plots from rkpredictive_plots.py within stochastic_rk4. 
 
-4. Training & Visualization Scripts: Used for processing the 80-patient training set and generating aggregate convergence and scaling plots across various discretization steps ($\Delta t$).emplots_training.pymilstein_plots_trainingset.pyrk_trainingset.py3.
-
-Note: The tumour_data.csv file (derived from the LUMIERE dataset) is already included within the branched folders of this repository. You do not need to provide external volumetric data to run the solvers.
+4. Training & Visualization Scripts: Used for processing the 80-patient training set and generating aggregate convergence and scaling plots across various discretization steps ($\Delta t$). Data was taken from the tumour_data.csv file (derived from the LUMIERE dataset) is already included within the branched folders of this repository. You do not need to provide external volumetric data to run the solvers.
+5. Comparison: within the comparison_methods folder is the following structure:
 ```bash
 .
 ├── tumour_data.csv          # Pre-processed volumetric data for all patients
-├── numerical_stats/         # Auto-generated: Aggregated CSV metrics (MASE, Chi2, etc.)
-├── neuralstats/             # Expected input: Place 'test_stats.txt' here
-├── test_plots/              # Auto-generated: Final paper-style comparison figures
-├── [method]_predictive_plots/ # Auto-generated: Individual patient trajectory fits
-└── [method]_conv/           # Auto-generated: Discretization error & runtime scaling plots
+├── numerical_stats/         # Aggregated CSV metrics (MASE, Chi2, etc.)
+├── neuralstats/             # Output from neural ODE
+├── test_plots/              # final paper-style comparison figures
+├── comparison_conv.py # script to compare convergence of methods
+└── comparison_metrics.py          # script to compare metrics of methods
 ```
 After execution, the following directories will be populated with results:
 
@@ -89,7 +88,7 @@ Stability is evaluated via Trajectory Convergence Time (TCT). The scripts calcul
 The included tumour_data.csv is derived from the LUMIERE dataset (Longitudinal Glioblastoma MRI with expert RANO evaluation). We performed automated segmentation using HD-GLIO and nnU-Net, extracting volumetric data across four MRI sequences (T1, T1c, T2, and FLAIR). This ensures the numerical models are grounded in high-fidelity, longitudinal clinical observations.
 
 ## Verification Script (**FOR TAS**)
-To facilitate quick grading, the scripts test_em.py, test_milstein.py, and test_srk.py have been pre-configured as "High-Efficiency" versions. These scripts isolate a single patient and use optimized hyperparameters to significantly reduce wall-clock runtime without compromising the underlying mathematical logic.
+To facilitate quick grading, the scripts test_em.py, test_milstein.py, and test_srk.py have been pre-configured as "High-Efficiency" versions within the folder test. These scripts isolate a single patient and use optimized hyperparameters to significantly reduce wall-clock runtime without compromising the underlying mathematical logic.
 We have implemented two primary changes to the numerical configurations to ensure each script finishes in around 5-10 minutes total for all three scripts:
 1. Discretization ($\Delta t$): Increased to $\Delta t = 0.5, 1$. By using a larger step size, the number of iterations per simulation is reduced.
 3. Ensemble Size ($M$):Standard: $M = 60$ paths (For stable 95% Confidence Intervals).Grading Mode: $M = 20$ paths. This reduces the Monte Carlo computational load by 66%.
@@ -140,11 +139,6 @@ Please follow these steps to verify the numerical models and predictive accuracy
 
 **Example Data Interpretation:** For example:
 MASE (0.97): Indicates a very strong predictive fit on the unseen test data.TCT (1330.0): Shows that this specific simulation did not reach a stable plateau within the clinical window (often signifying active late-stage growth).StrongError (2523|2325|...|1915): Shows a steady decrease in error as the time step is refined from $0.8$ down to $0.05$, proving numerical stability.
-## Final Comparative Analysis
-These scripts consolidate numerical results with Neural ODE outputs to generate the formal paper-style visualizations and tables used in the report.
-
-1. comparison_metrics.py: Generates comparative box plots for MASE, $\chi^2$, NSE, and KGE.
-2. comparison_conv.py: Generates Strong/Weak error and Trajectory Convergence Time (TCT) comparisons.
 
 ## How to Use
 1. Prepare DataPlace your tumour_data.csv in the root directory.Ensure your Neural ODE results are saved in a directory named neuralstats/ (specifically neuralstats/test_stats.txt).
