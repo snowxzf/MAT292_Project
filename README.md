@@ -87,7 +87,17 @@ To verify the numerical implementation without running the full cohort, use the 
 **How it differs from the main solvers:**
 - **Speed:** Uses **NumPy Vectorization** to solve the Stochastic Differential Equations. It processes the 60-path Monte Carlo ensemble 10x faster than the standard iterative scripts. Therefore, keep in mind that the shape of the graph is different than what the report used.
 - **Scope:** While the main scripts (`empredictive.py`, etc.) process the full 10-patient test cohort, this script targets a single representative patient to allow for rapid verification of the numerical logic.
+Each numerical script (empredictive.py, etc.) generates a summary CSV in the numerical_stats/ folder. Below is a breakdown of what the columns represent:
+1. Identification & PerformancePatient / Method: The patient ID and the specific SDE solver used.
+2. MASE (Mean Absolute Scaled Error): The primary accuracy metric. A value near 1.0 means the model is roughly as accurate as a "naive" guess. Lower is better.
+3. Chi2 ($\chi^2$): Measures the structural deviation of the fit from clinical data. High values indicate a divergence in growth trends.
+4. NSE / KGE: Efficiency metrics where 1.0 is a perfect fit. Negative values indicate that the model mean is less predictive than the historical average.FitTime / ParamChange: Tracks the computational cost of the two-stage calibration (Differential Evolution + Least Squares).
+5. Stability & ConvergenceTrajectoryConvergenceTime (TCT): The time point (in weeks) where the tumor volume stabilizes within a $10^{-4}$ tolerance.
+6. Conv_dt: The refinement grid used for discretization analysis (e.g., 0.8|0.4|0.2|0.1|0.05).
+7. StrongError / WeakError: These columns contain multiple values separated by a pipe (|). Each value corresponds to the discretization steps in Conv_dt.Strong Error: Measures path-wise accuracy. It should decrease linearly as $\Delta t$ gets smaller. Weak Error: Measures the accuracy of the statistical mean.
+8. Runtime: The wall-clock time (seconds) taken to simulate the ensemble at each refinement level.
 
+**Example Data Interpretation:** In the provided example for Patient 31:MASE (0.97): Indicates a very strong predictive fit on the unseen test data.TCT (1330.0): Shows that this specific simulation did not reach a stable plateau within the clinical window (often signifying active late-stage growth).StrongError (2523|2325|...|1915): Shows a steady decrease in error as the time step is refined from $0.8$ down to $0.05$, proving numerical stability.
 ## Final Comparative Analysis
 These scripts consolidate numerical results with Neural ODE outputs to generate the formal paper-style visualizations and tables used in the report.
 
