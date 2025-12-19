@@ -84,6 +84,9 @@ To verify the numerical implementation without running the full cohort, use the 
 1. Ensure `tumour_data.csv` is in the root directory.
 2. Run `python verify_patient_67.py`.
 3. Check the `verification_results/` folder for the summary CSV and comparison plot.
+**How it differs from the main solvers:**
+- **Speed:** Uses **NumPy Vectorization** to solve the Stochastic Differential Equations. It processes the 60-path Monte Carlo ensemble 10x faster than the standard iterative scripts. Therefore, keep in mind that the shape of the graph is different than what the report used.
+- **Scope:** While the main scripts (`empredictive.py`, etc.) process the full 10-patient test cohort, this script targets a single representative patient to allow for rapid verification of the numerical logic.
 
 ## Final Comparative Analysis
 These scripts consolidate numerical results with Neural ODE outputs to generate the formal paper-style visualizations and tables used in the report.
