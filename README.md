@@ -3,6 +3,7 @@
 # Glioblastoma Tumor Growth: Numerical & Comparative Analysis
 
 This repository contains the implementation of various **Stochastic Differential Equation (SDE)** solvers and a comparative analysis framework to evaluate tumor growth forecasting. It compares classical numerical methods against a **Neural ODE** approach using longitudinal MRI data from the LUMIERE dataset.
+NOTE: For grading the MAT292 Project, for numerical methods, please watch for the section that is explicitly for TA testing.
 
 ## Segmentation Process and Extracting Tumour Volumes 
 These tumour volumes are used for the rest of the numerical and neural models, thus it is important that this was done first. However this may take up to hours to fully finish, thus we recommend using the completed files "all_tumor_volumes_hdglio_test.csv" and "all_tumor_volumes_hdglio_train.csv". 
@@ -133,7 +134,7 @@ Each directory will contain:
 
 If you wish to verify the model against other patients from our test cohort, simply modify the TESTING_PATIENTS list at the top of each script: (Change this to any of the 10 test patients: [31, 19, 43, 54, 77, 73, 72, 71, 67, 52])
 ```bash
-TESTING_PATIENTS: List[int] = [67]
+TESTING_PATIENTS: List[int] = [...]
 ```
 
 Please follow these steps to verify the numerical models and predictive accuracy:
