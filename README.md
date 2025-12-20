@@ -2,6 +2,21 @@
 
 This repository contains the implementation of various **Stochastic Differential Equation (SDE)** solvers and a comparative analysis framework to evaluate tumour growth forecasting. It compares classical numerical methods against a **Neural ODE** approach using longitudinal MRI data from the LUMIERE dataset.
 NOTE: For grading the MAT292 Project, for numerical methods, please watch for the section that is explicitly for TA testing.
+## Installation Notes and Setup
+1. **Environment Setup**: 
+   It is recommended to use a virtual environment to avoid dependency conflicts:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   pip install -r requirements.txt
+2. External Dependencies (Segmentation only): If running the full segmentation pipeline, ensure FSL and FreeSurfer are installed on your Linux system.
+3. Quick Verification (For TAs): To verify the numerical models quickly without the full computational load (** for more information, scroll to the "Verification Script (**FOR TAs**)" section)
+```bash
+cd test
+python test_em.py
+python test_milstein.py
+python test_srk.py
+```
 
 ## Segmentation Process and Extracting Tumour Volumes 
 These tumour volumes are used for the rest of the numerical and neural models, thus it is important that this was done first. However this may take up to hours to fully finish, thus we recommend using the completed files "all_tumor_volumes_hdglio_test.csv" and "all_tumor_volumes_hdglio_train.csv". 
@@ -21,7 +36,7 @@ It should output:
 - Registration matrices
 
 The bash files "create_volumes.sh" and "extract_volumes.sh" were used to extract and put these volumes all into one file for easier access for numerical and neural models. 
-
+   
 ## Neural Model 
 
 1. Markov State Transition Matrices (statespace.py)
