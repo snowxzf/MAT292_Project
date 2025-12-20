@@ -25,7 +25,7 @@ The bash files "create_volumes.sh" and "extract_volumes.sh" were used to extract
 ## Neural Model 
 
 1. Markov State Transition Matrices (statespace.py)
-This script builds state transition probability matrices for disease progression modeling based on MGMT methylation status, a key biomarker that predicts treatment response in glioblastoma. It first loads and cleans clinical rating data (CR, PR, SD, PD, OP states) and separates patients into methylated vs. unmethylated cohorts. It then racks all state-to-state transitions for each patients and calculates normalized transition probabilities. 
+This script builds state transition probability matrices for disease progression modeling based on MGMT methylation status, a key biomarker that predicts treatment response in glioblastoma. It first loads and cleans clinical rating data (CR, PR, SD, PD, OP states) and separates patients into methylated vs. unmethylated cohorts. It then tracks all state-to-state transitions for each patients and calculates normalized transition probabilities. 
 
 Input: LUMIERE_ExpertRating_Train.csv, LUMIERE_Demographics_Pathology_Train.csv
 
