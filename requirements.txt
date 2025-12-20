@@ -1,0 +1,20 @@
+# Core Scientific Computing
+numpy>=1.21.0
+pandas>=1.3.0
+scipy>=1.7.0
+scikit-learn>=1.0.0
+tqdm>=4.60.0
+
+# Medical Imaging and Segmentation
+nibabel>=3.2.0
+SimpleITK>=2.1.0
+pyradiomics>=3.0.0
+nnunet>=1.7.0
+
+# Deep Learning and Differential Equations
+torch>=1.10.0
+torchdiffeq>=0.2.0
+
+# Visualization and Plotting
+matplotlib>=3.4.0
+seaborn>=0.11.0
