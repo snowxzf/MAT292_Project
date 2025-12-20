@@ -25,11 +25,38 @@ The bash files "create_volumes.sh" and "extract_volumes.sh" were used to extract
 
 ## Neural Model 
 
-1. Markov State Transition Matrices
+1. Markov State Transition Matrices (statespace.py)
+This script builds state transition probability matrices for disease progression modeling based on MGMT methylation status, a key biomarker that predicts treatment response in glioblastoma. It first loads and cleans clinical rating data (CR, PR, SD, PD, OP states) and separates patients into methylated vs. unmethylated cohorts. It then racks all state-to-state transitions for each patients and calculates normalized transition probabilities. 
 
-   
+Input: LUMIERE_ExpertRating_Train.csv, LUMIERE_Demographics_Pathology_Train.csv
 
-3. Hybrid Neural Model 
+Output: methylated_train.csv, unmethylated_train.csv
+
+After the Markov transition probability matrices are outputted, they are used in the hybrid neural model. 
+
+2. Hybrid Neural Model
+
+This section implements a hybrid neural ODE model that combines the previously produced Markov state transition matrices with deep learning to output a continuous tumour volume trajectory based on a patient's methylation status. 
+
+Package requirements can be installed using:
+```bash
+pip install torch torchdiffeq numpy pandas matplotlib scikit-learn
+```
+
+Input files: 
+- `methylated_train.csv` / `unmethylated_train.csv` - Transition matrices from `statespace.py`
+- `all_tumor_volumes_hdglio_test.csv` 
+- `LUMIERE_Demographics_Pathology_Train.csv`
+-  `final_hybrid_ode_weights.pth`
+
+The final_hybrid_ode_weights.pth file contains the trained data that is used in hybrid_neural.py to produce the tumour growth plots. It is recommended that one uses this file when running to save time rather than training the model themselves. While running, **ensure these files are in the same folder and directories are updated correctly**. 
+
+Once all of this is complete, run the script hybrid_neural.py:
+```bash
+python hybrid_neural.py
+```
+This will load the pre-trained model from 'final_hybrid_ode_weights.pth' and generate prediction withs 200 Monte Carlo trajectories per patient. It then calculates metrices: MASE, Chi-squared, NSE, KGE, and creates comparison plots with uncertainty bounds. Specifically `neuralode_comparison_PatientID.png` which gives individual patieent prediction plots, which is used to compare with numerical method plots. 
+
 ## Numerical Overview
 The project implements a **Stochastic Logistic Growth Model** to predict tumor volume trajectories. It accounts for biological randomness using Monte Carlo ensembles and compares three numerical integration schemes of varying complexity:
 1. **Euler-Maruyama (EM)** - First-order baseline (Strong order 0.5).
