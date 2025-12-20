@@ -25,7 +25,7 @@ The bash files "create_volumes.sh" and "extract_volumes.sh" were used to extract
 ## Neural Model 
 
 1. Markov State Transition Matrices (statespace.py)
-This script builds state transition probability matrices for disease progression modeling based on MGMT methylation status, a key biomarker that predicts treatment response in glioblastoma. It first loads and cleans clinical rating data (CR, PR, SD, PD, OP states) and separates patients into methylated vs. unmethylated cohorts. It then tracks all state-to-state transitions for each patients and calculates normalized transition probabilities. 
+This script builds state transition probability matrices for disease progression modeling based on MGMT methylation status, a key biomarker that predicts treatment response in glioblastoma. It first loads and cleans clinical rating data (CR, PR, SD, PD, OP states) and separates patients into methylated vs. unmethylated cohorts. It then tracks all state-to-state transitions for each patient and calculates normalized transition probabilities. 
 
 Input: LUMIERE_ExpertRating_Train.csv, LUMIERE_Demographics_Pathology_Train.csv
 
@@ -54,7 +54,7 @@ Once all of this is complete, run the script hybrid_neural.py:
 ```bash
 python hybrid_neural.py
 ```
-This will load the pre-trained model from 'final_hybrid_ode_weights.pth' and generate prediction withs 200 Monte Carlo trajectories per patient. It then calculates metrices: MASE, Chi-squared, NSE, KGE, and creates comparison plots with uncertainty bounds. Specifically `neuralode_comparison_PatientID.png` which gives individual patieent prediction plots, which is used to compare with numerical method plots. 
+This will load the pre-trained model from 'final_hybrid_ode_weights.pth' and generate prediction withs 200 Monte Carlo trajectories per patient. It then calculates metrics: MASE, Chi-squared, NSE, KGE, and creates comparison plots with uncertainty bounds. Specifically `neuralode_comparison_PatientID.png` which gives individual patient prediction plots, which is used to compare with numerical method plots. 
 
 ## Numerical Overview
 The project implements a **Stochastic Logistic Growth Model** to predict tumour volume trajectories. It accounts for biological randomness using Monte Carlo ensembles and compares three numerical integration schemes of varying complexity:
@@ -161,7 +161,7 @@ Please follow these steps to verify the numerical models and predictive accuracy
 
 - The Solid Line shows the SDE model's mean forecast.
 
-5. Data Verification: Open the .csv files. Check for MASE, NGE, KSE, Chi-squared, TCT convergence, strong/weak convergence, runtime convergence. 
+5. Data Verification: Open the .csv files. Check for MASE, NSE, KGE, Chi-squared, TCT convergence, strong/weak convergence, runtime convergence. 
 
 **Example Data Interpretation:** For example:
 MASE (0.97): Indicates a very strong predictive fit on the unseen test data.TCT (1330.0): Shows that this specific simulation did not reach a stable plateau within the clinical window (often signifying active late-stage growth).StrongError (2523|2325|...|1915): Shows a steady decrease in error as the time step is refined from $0.8$ down to $0.05$, proving numerical stability.
