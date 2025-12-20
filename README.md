@@ -54,7 +54,7 @@ Once all of this is complete, run the script hybrid_neural.py:
 ```bash
 python hybrid_neural.py
 ```
-This will load the pre-trained model from 'final_hybrid_ode_weights.pth' and generate prediction withs 200 Monte Carlo trajectories per patient. It then calculates metrics: MASE, Chi-squared, NSE, KGE, and creates comparison plots with uncertainty bounds. Specifically `neuralode_comparison_PatientID.png` which gives individual patient prediction plots, which is used to compare with numerical method plots. 
+This will load the pre-trained model from 'final_hybrid_ode_weights.pth' and generate prediction with 200 Monte Carlo trajectories per patient. It then calculates metrics: MASE, Chi-squared, NSE, KGE, and creates comparison plots with uncertainty bounds. Specifically `neuralode_comparison_PatientID.png` which gives individual patient prediction plots, which is used to compare with numerical method plots. 
 
 ## Numerical Overview
 The project implements a **Stochastic Logistic Growth Model** to predict tumour volume trajectories. It accounts for biological randomness using Monte Carlo ensembles and compares three numerical integration schemes of varying complexity:
@@ -113,7 +113,7 @@ Stability is evaluated via Trajectory Convergence Time (TCT). The scripts calcul
 ## Data Source and Preprocessing
 The included tumour_data.csv is derived from the LUMIERE dataset (Longitudinal Glioblastoma MRI with expert RANO evaluation). We performed automated segmentation using HD-GLIO and nnU-Net, extracting volumetric data across four MRI sequences (T1, T1c, T2, and FLAIR). This ensures the numerical models are grounded in high-fidelity, longitudinal clinical observations.
 
-## Verification Script (**FOR TAS**)
+## Verification Script (**FOR TAs**)
 To facilitate quick grading, the scripts test_em.py, test_milstein.py, and test_srk.py have been pre-configured as "High-Efficiency" versions within the folder test. These scripts isolate a single patient and use optimized hyperparameters to significantly reduce wall-clock runtime without compromising the underlying mathematical logic.
 We have implemented two primary changes to the numerical configurations to ensure each script finishes in around 5-10 minutes total for all three scripts:
 1. Discretization ($\Delta t$): Increased to $\Delta t = 0.5, 1$. By using a larger step size, the number of iterations per simulation is reduced.
