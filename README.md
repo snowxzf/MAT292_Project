@@ -1,13 +1,13 @@
-# Glioblastoma Tumor Growth: Numerical & Comparative Analysis
+# Glioblastoma Tumour Growth: Numerical & Comparative Analysis
 
-This repository contains the implementation of various **Stochastic Differential Equation (SDE)** solvers and a comparative analysis framework to evaluate tumor growth forecasting. It compares classical numerical methods against a **Neural ODE** approach using longitudinal MRI data from the LUMIERE dataset.
+This repository contains the implementation of various **Stochastic Differential Equation (SDE)** solvers and a comparative analysis framework to evaluate tumour growth forecasting. It compares classical numerical methods against a **Neural ODE** approach using longitudinal MRI data from the LUMIERE dataset.
 NOTE: For grading the MAT292 Project, for numerical methods, please watch for the section that is explicitly for TA testing.
 
 ## Segmentation Process and Extracting Tumour Volumes 
 These tumour volumes are used for the rest of the numerical and neural models, thus it is important that this was done first. However this may take up to hours to fully finish, thus we recommend using the completed files "all_tumor_volumes_hdglio_test.csv" and "all_tumor_volumes_hdglio_train.csv". 
 
 The following packages are necessary for successful segmentation (linux):
-- HD-GLIO, nnunet, nibabel,numpy, pandas, scipy,SimpleITK, pyradiomics collageradiomics, FSL, FreeSurfer, torch, tqdm
+- HD-GLIO, nnU-Net, nibabel,numpy, pandas, scipy,SimpleITK, pyradiomics collageradiomics, FSL, FreeSurfer, torch, tqdm
 
 To complete MRI segmentation, run "runhdglio.sh"  and "run.py", ensure the directories in the script are changed to the correct ones with complete patient data. 
 **Usage**:
@@ -16,7 +16,7 @@ bash runhdglio.sh
 ```
 It should output: 
 - Registered MRI sequences
-- Tumor segmentation masks
+- Tumour segmentation masks
 - Volume measurements
 - Registration matrices
 
@@ -57,7 +57,7 @@ python hybrid_neural.py
 This will load the pre-trained model from 'final_hybrid_ode_weights.pth' and generate prediction withs 200 Monte Carlo trajectories per patient. It then calculates metrices: MASE, Chi-squared, NSE, KGE, and creates comparison plots with uncertainty bounds. Specifically `neuralode_comparison_PatientID.png` which gives individual patieent prediction plots, which is used to compare with numerical method plots. 
 
 ## Numerical Overview
-The project implements a **Stochastic Logistic Growth Model** to predict tumor volume trajectories. It accounts for biological randomness using Monte Carlo ensembles and compares three numerical integration schemes of varying complexity:
+The project implements a **Stochastic Logistic Growth Model** to predict tumour volume trajectories. It accounts for biological randomness using Monte Carlo ensembles and compares three numerical integration schemes of varying complexity:
 1. **Euler-Maruyama (EM)** - First-order baseline (Strong order 0.5).
 2. **Milstein Method** - Second-order Itô correction (Strong order 1.0).
 3. **Strong Runge-Kutta (SRK)** - Derivative-free higher-order scheme (Strong order 1.0).
