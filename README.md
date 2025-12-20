@@ -1,5 +1,3 @@
-# MAT292_Project
-
 # Glioblastoma Tumor Growth: Numerical & Comparative Analysis
 
 This repository contains the implementation of various **Stochastic Differential Equation (SDE)** solvers and a comparative analysis framework to evaluate tumor growth forecasting. It compares classical numerical methods against a **Neural ODE** approach using longitudinal MRI data from the LUMIERE dataset.
